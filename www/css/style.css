@@ -1,0 +1,1201 @@
+/* ============ ESTILOS GLOBALES APLICACION ============ */
+
+/* ---------------------------------------------------
+  FUENTES TEXTOS
+----------------------------------------------------- */
+
+@font-face {
+  font-family: 'Roboto-Medium';
+  src: url('../fonts/Roboto/Roboto-Medium.eot#') format('eot'),
+       url('../fonts/Roboto/Roboto-Medium.woff') format('woff'),
+       url('../fonts/Roboto/Roboto-Medium.ttf') format('truetype'),
+       url('../fonts/Roboto/Roboto-Medium.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('../fonts/Roboto/roboto-Regular.eot#') format('eot'),
+       url('../fonts/Roboto/roboto-Regular.woff') format('woff'),
+       url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype'),
+       url('../fonts/Roboto/roboto-Regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url('../fonts/Roboto/Roboto-Bold.eot#') format('eot'),
+       url('../fonts/Roboto/Roboto-Bold.woff') format('woff'),
+       url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype'),
+       url('../fonts/Roboto/Roboto-Bold.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('../fonts/Roboto/Roboto-Light.eot#') format('eot'),
+       url('../fonts/Roboto/Roboto-Light.woff') format('woff'),
+       url('../fonts/Roboto/Roboto-Light.ttf') format('truetype'),
+       url('../fonts/Roboto/Roboto-Light.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Thin';
+  src: url('../fonts/Roboto/Roboto-Thin.eot#') format('eot'),
+       url('../fonts/Roboto/Roboto-Thin.woff') format('woff'),
+       url('../fonts/Roboto/Roboto-Thin.ttf') format('truetype'),
+       url('../fonts/Roboto/Roboto-Thin.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ---------------------------------------------------
+  FUENTES CUSTOM ICONOGRAFICAS
+----------------------------------------------------- */
+
+/* ============ SETEADO DE PROPIEDADES NAVEGADOR ============ */
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0 !important;
+  width: 100%;
+  height: 100% !important;
+  background: rgba(239,239,239,0.85);
+}
+
+.viewport_inicial {
+  width: 100%;
+  height: 100%;
+}
+
+.scroll {
+  min-height: 100%;
+  height: 100%;
+}
+
+.scroll-content > .scroll {
+  height: 100%;
+}
+
+a, a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none !important;
+}
+
+::-webkit-input-placeholder { font-size: 13.59px; color: #999999 !important; font-family: "roboto-Regular"; text-align: left !important; line-height:; position: relative;} /* WebKit */
+:-moz-placeholder { font-size: 13.59px; color: #999999 !important; font-family: "roboto-Regular"; text-align: left !important; line-height:; position: relative;} /* Firefox 18- */
+::-moz-placeholder { font-size: 13.59px; color: #999999 !important; font-family: "roboto-Regular"; text-align: left !important; line-height:; position: relative;} /* Firefox 19+ */
+:-ms-input-placeholder { font-size: 13.59px; color: #999999 !important; font-family: "roboto-Regular"; text-align: left !important; line-height:; position: relative;} /* IE 10+ */
+input-placeholder { font-size: 13.59px; color: #999999 !important; font-family: "roboto-Regular"; text-align: left !important; line-height:; position: relative;} /* IE 10+ */
+
+textarea:focus {
+  outline: none !important;
+  border: 2px solid #00CCFF !important;
+}
+
+/* ============ TERMINA ESTILOS GLOBALES APLICACION ============ */
+
+/* ============ ANIMACION GLOBAL PULSE ============ */
+
+.pulse_custom {
+  overflow: initial;
+  position: relative;
+}
+
+.pulse_custom::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: inherit;
+  border-radius: inherit;
+  transition: opacity .3s, -webkit-transform .3s;
+  transition: opacity .3s, transform .3s;
+  transition: opacity .3s, transform .3s, -webkit-transform .3s;
+  -webkit-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+          animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  z-index: -1;
+}
+
+@-webkit-keyframes pulse-animation {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+}
+
+@keyframes pulse-animation {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+}
+
+/* ============ TERMINA ANIMACION GLOBAL PULSE ============ */
+
+/* ============ FORMAS DE CENTRADO ============ */
+
+/* ---------------------------------------------------
+  CENTRADO PADRE > HIJO
+----------------------------------------------------- */
+
+.contenedor_padre {
+  width: 100%;
+  height: auto;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.contenedor_hijo {
+  width: 80%;
+  height: auto;
+}
+
+/* ---------------------------------------------------
+  CENTRADO RELATIVO
+----------------------------------------------------- */
+
+.contenido_centrado {
+  width: 100%;
+  position: absolute !important;
+  top: 50%; 
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/* ---------------------------------------------------
+  CENTRADO ABSOLUTO
+----------------------------------------------------- */
+
+.contenido_centrado_dos {
+  width: 100%;
+  text-align: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  margin: auto;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow-wrap: break-word;
+}
+
+.contenido_centrado_tres {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  text-align: center;
+}
+
+/* ============ TERMINA FORMAS DE CENTRADO ============ */
+
+/* ============ ESTILOS GLOBALES TIN APP ============ */
+
+/* ---------------------------------------------------
+  WIDTH - HEIGHT - MARGINS- PADDINGS CUSTOMS
+----------------------------------------------------- */
+
+.w-25 {
+  width: 25% !important;
+}
+
+.w-50 {
+  width: 50% !important;
+}
+
+.w-75 {
+  width: 75% !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.h-25 {
+  height: 25% !important;
+}
+
+.h-50 {
+  height: 50% !important;
+}
+
+.h-75 {
+  height: 75% !important;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.mw-100 {
+  max-width: 100% !important;
+}
+
+.mh-100 {
+  max-height: 100% !important;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.mr-0 {
+  margin-right: 0 !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.ml-0 {
+  margin-left: 0 !important;
+}
+
+.mx-0 {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.my-0 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.m-1 {
+  margin: 0.25rem !important;
+}
+
+.mt-1 {
+  margin-top: 0.25rem !important;
+}
+
+.mr-1 {
+  margin-right: 0.25rem !important;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem !important;
+}
+
+.ml-1 {
+  margin-left: 0.25rem !important;
+}
+
+.mx-1 {
+  margin-right: 0.25rem !important;
+  margin-left: 0.25rem !important;
+}
+
+.my-1 {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.m-2 {
+  margin: 0.5rem !important;
+}
+
+.mt-2 {
+  margin-top: 0.5rem !important;
+}
+
+.mr-2 {
+  margin-right: 0.5rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+
+.ml-2 {
+  margin-left: 0.5rem !important;
+}
+
+.mx-2 {
+  margin-right: 0.5rem !important;
+  margin-left: 0.5rem !important;
+}
+
+.my-2 {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.m-3 {
+  margin: 1rem !important;
+}
+
+.mt-3 {
+  margin-top: 1rem !important;
+}
+
+.mr-3 {
+  margin-right: 1rem !important;
+}
+
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+
+.ml-3 {
+  margin-left: 1rem !important;
+}
+
+.mx-3 {
+  margin-right: 1rem !important;
+  margin-left: 1rem !important;
+}
+
+.my-3 {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.m-4 {
+  margin: 1.5rem !important;
+}
+
+.mt-4 {
+  margin-top: 1.5rem !important;
+}
+
+.mr-4 {
+  margin-right: 1.5rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.ml-4 {
+  margin-left: 1.5rem !important;
+}
+
+.mx-4 {
+  margin-right: 1.5rem !important;
+  margin-left: 1.5rem !important;
+}
+
+.my-4 {
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.m-5 {
+  margin: 3rem !important;
+}
+
+.mt-5 {
+  margin-top: 3rem !important;
+}
+
+.mr-5 {
+  margin-right: 3rem !important;
+}
+
+.mb-5 {
+  margin-bottom: 3rem !important;
+}
+
+.ml-5 {
+  margin-left: 3rem !important;
+}
+
+.mx-5 {
+  margin-right: 3rem !important;
+  margin-left: 3rem !important;
+}
+
+.my-5 {
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+.pt-0 {
+  padding-top: 0 !important;
+}
+
+.pr-0 {
+  padding-right: 0 !important;
+}
+
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
+.pl-0 {
+  padding-left: 0 !important;
+}
+
+.px-0 {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.py-0 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.p-1 {
+  padding: 0.25rem !important;
+}
+
+.pt-1 {
+  padding-top: 0.25rem !important;
+}
+
+.pr-1 {
+  padding-right: 0.25rem !important;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem !important;
+}
+
+.pl-1 {
+  padding-left: 0.25rem !important;
+}
+
+.px-1 {
+  padding-right: 0.25rem !important;
+  padding-left: 0.25rem !important;
+}
+
+.py-1 {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+.p-2 {
+  padding: 0.5rem !important;
+}
+
+.pt-2 {
+  padding-top: 0.5rem !important;
+}
+
+.pr-2 {
+  padding-right: 0.5rem !important;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem !important;
+}
+
+.pl-2 {
+  padding-left: 0.5rem !important;
+}
+
+.px-2 {
+  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
+}
+
+.py-2 {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.p-3 {
+  padding: 1rem !important;
+}
+
+.pt-3 {
+  padding-top: 1rem !important;
+}
+
+.pr-3 {
+  padding-right: 1rem !important;
+}
+
+.pb-3 {
+  padding-bottom: 1rem !important;
+}
+
+.pl-3 {
+  padding-left: 1rem !important;
+}
+
+.px-3 {
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+}
+
+.py-3 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.p-4 {
+  padding: 1.5rem !important;
+}
+
+.pt-4 {
+  padding-top: 1.5rem !important;
+}
+
+.pr-4 {
+  padding-right: 1.5rem !important;
+}
+
+.pb-4 {
+  padding-bottom: 1.5rem !important;
+}
+
+.pl-4 {
+  padding-left: 1.5rem !important;
+}
+
+.px-4 {
+  padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
+}
+
+.py-4 {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+.p-5 {
+  padding: 3rem !important;
+}
+
+.pt-5 {
+  padding-top: 3rem !important;
+}
+
+.pr-5 {
+  padding-right: 3rem !important;
+}
+
+.pb-5 {
+  padding-bottom: 3rem !important;
+}
+
+.pl-5 {
+  padding-left: 3rem !important;
+}
+
+.px-5 {
+  padding-right: 3rem !important;
+  padding-left: 3rem !important;
+}
+
+.py-5 {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+.m-auto {
+  margin: auto !important;
+}
+
+.mt-auto {
+  margin-top: auto !important;
+}
+
+.mr-auto {
+  margin-right: auto !important;
+}
+
+.mb-auto {
+  margin-bottom: auto !important;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+
+.mx-auto {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.my-auto {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+/* ---------------------------------------------------
+  BACGROUND COLOR APP
+----------------------------------------------------- */
+
+.bg_azul_oscuro {
+  background: #050F37;
+}
+
+/* ---------------------------------------------------
+  TXT COLOR APP
+----------------------------------------------------- */
+
+.txt_color_gris_oscuro {
+  color: #606060;
+}
+
+/* ---------------------------------------------------
+  TAMAÑO FUENTE TXT
+----------------------------------------------------- */
+
+.wor_wra {
+  -ms-word-wrap:break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.2rem;
+}
+
+.txt_xl {
+  font-size: 36px;
+}
+
+.txt_lg {
+  font-size: 30px;
+}
+
+.txt_md {
+  font-size: 24px;
+}
+
+.txt_sm {
+  font-size: 18px;
+}
+
+.txt_xs {
+  font-size: 14px;
+}
+
+.txt_xs_mini {
+  font-size: 12px;
+}
+
+.txt_xs_button {
+  font-size: 10px;
+}
+
+/* ---------------------------------------------------
+  TIPO FUENTE TXT
+----------------------------------------------------- */
+
+.tip_fuen_roboto_m {
+  font-family: 'Roboto-Medium', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.tip_fuen_roboto_r {
+  font-family: 'Roboto-Regular', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.tip_fuen_roboto_b {
+  font-family: 'Roboto-Bold', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.tip_fuen_roboto_l {
+  font-family: 'Roboto-Light', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.tip_fuen_roboto_t {
+  font-family: 'Roboto-Thin', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ---------------------------------------------------
+    POSICION TXT
+----------------------------------------------------- */
+
+.text_center {
+	text-align: center;
+}
+
+.text_left {
+	text-align: left;
+}
+
+.text_right {
+	text-align: right;
+}
+
+/* ---------------------------------------------------
+  ESTILOS CHECKBUTTONS Y RADIOBUTTONS
+----------------------------------------------------- */
+
+.control_checkbox, .control_radio {
+  text-align: left;
+  padding: 5px 0px 0px 0px;
+  __margin: 10px;
+}
+
+.control {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  __margin-bottom: 15px;
+  margin-bottom: 5px !important;
+  cursor: pointer;
+}
+
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.control__indicator {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 2px solid #33E789;
+  border-radius: 4px;
+}
+
+.control input:checked ~ .control__indicator {
+  background: #33E789;
+}
+
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+  background: #33E789;
+}
+
+.control input:disabled ~ .control__indicator {
+  background: #F5F5F5;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.control__indicator:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.control input:checked ~ .control__indicator:after {
+  display: block;
+}
+
+.control--checkbox .control__indicator:after {
+  left: 7px;
+  top: 4px;
+  width: 4px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.control--checkbox input:disabled ~ .control__indicator:after {
+  border-color: #7b7b7b;
+}
+
+.control--radio .control__indicator {
+  border-radius: 50%;
+}
+
+.control--radio .control__indicator:after {
+  left: 6px;
+  top: 6px;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: #fff;
+}
+.control--radio input:disabled ~ .control__indicator:after {
+  background: #2E074A;
+}
+
+/* ---------------------------------------------------
+  ESTILOS GENERICOS VALIDACIONES
+----------------------------------------------------- */
+
+.alert-success{
+  color: #3c763d !important;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.span_wrong{
+  border-color: #FF473D;
+  color: #FF473D;
+  text-align: justify;
+  font-family: 'Roboto-Light', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+}
+
+.input_wrong{
+  border-bottom:2px solid #FF473D!important;
+}
+
+textarea.input_wrong {
+  border:2px solid #FF473D!important;
+}
+
+.item-personalizado.errorl{
+  border: 1px solid #FF0000;
+}
+
+.item-personalizado-comentarios.errorl{
+  border: 1px solid #FF0000 !important;
+}
+
+.item-personalizado-solicitud-info.errorl{
+  border: 1px solid #FF0000 !important;
+}
+
+label .error {
+  border: 1px solid #f00;
+}
+
+label.error {
+  line-height: 0; 
+  font-size: 12px;
+  border:0px;
+  color:#dd4b39;
+  text-align: center;
+}
+
+.error {
+  border: 1px solid #dd4b39;
+}
+
+/* ---------------------------------------------------
+  ESTILOS FORMULARIOS CUSTOM
+----------------------------------------------------- */
+
+.formulario_custom {
+  width: 100%;
+  background-color: #FFFFFF;
+}
+
+.formulario_custom .group {
+  position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.formulario_custom .group.-ionic > .field {
+  height: 2.4rem;
+  text-indent: 15px;
+  border-radius: 0px;
+  border: 2px solid #050F37;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.formulario_custom .group.-ionic > .field:focus, .formulario_custom .group.-ionic > .field:valid {
+  border-color: #00CCFF;
+}
+
+.formulario_custom .group.-ionic > .field:focus + .title, .formulario_custom .group.-ionic > .field:valid + .title {
+  top: -2px;
+  color: #00CCFF;
+}
+
+.formulario_custom .group.-ionic > .field + .title {
+  padding: 0 .0rem;
+  background-color: #FFF;
+}
+
+.formulario_custom .group > .field {
+  width: 100%;
+  border: 0;
+  outline: none;
+}
+
+.formulario_custom .group > .field + .title {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+         transition: .3s;
+  pointer-events: none;
+}
+
+.formulario_custom .group > .field:focus + .title, .formulario_custom .group > .field:valid + .title {
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  font-size: .75rem;
+}
+
+/* ---------------------------------------------------
+  INPUT SELECT CUSTOM
+----------------------------------------------------- */
+
+.select_custom {
+    height: 2.4rem;
+    text-indent: 15px;
+    border-radius: 0px;
+    border: 2px solid #999999;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.select_custom_set{
+  text-indent:0px !important;
+}
+
+select:focus,
+.uneditable-input:focus {   
+  border-color: transparent;
+  border-bottom-color: #050F37 !important;
+  box-shadow: 0 0px 0px transparent, 0 0 0px transparent !important;
+  outline: 0 none !important;
+}
+
+
+.map-container
+{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+
+  .map
+  {
+    height: 100%;
+    width: 100%;
+  }
+}
+/* ============ TERMINA ESTILOS GLOBALES TIN APP ============ */
+
+/* ============ MEDIAQUERIES TIN APP ============ */ 
+
+/* ============================             S4             ============================== */
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+
+/* ============ ESTILOS GLOBALES TIN APP ============ */
+
+/* ---------------------------------------------------
+  TAMAÑO FUENTE TXT
+----------------------------------------------------- */
+
+.txt_xl {
+  font-size: 21px;
+}
+
+.txt_lg {
+  font-size: 16px;
+}
+
+.txt_md {
+  font-size: 21px;
+}
+
+.txt_sm {
+  font-size: 15px;
+}
+
+.txt_xs {
+  font-size: 12px;
+}
+
+.txt_xs_mini {
+  font-size: 12px;
+}
+
+/* ============ TERMINA ESTILOS GLOBALES TIN APP ============ */
+
+}
+
+/* ============================             S6             ============================== */
+
+@media screen and (min-width: 375px) and (max-width: 667px)  {
+
+/* ============ ESTILOS GLOBALES TIN APP ============ */
+
+/* ---------------------------------------------------
+  TAMAÑO FUENTE TXT
+----------------------------------------------------- */
+
+.txt_xl {
+  font-size: 25px;
+}
+
+.txt_lg {
+  font-size: 25px;
+}
+
+.txt_md {
+  font-size: 22px;
+}
+
+.txt_sm {
+  font-size: 16px;
+}
+
+.txt_xs {
+  font-size: 13px;
+}
+
+.txt_xs_mini {
+  font-size: 12px;
+} 
+
+/* ============ TERMINA ESTILOS GLOBALES TIN APP ============ */
+
+}
+
+/* ============================           S6 PLUS          ============================== */
+
+@media screen and (min-width: 414px) and (max-width: 736px)  {
+
+/* ============ ESTILOS GLOBALES TIN APP ============ */
+
+/* ---------------------------------------------------
+  TAMAÑO FUENTE TXT
+----------------------------------------------------- */
+
+.txt_xl {
+  font-size: 20px;
+}
+
+.txt_lg {
+  font-size: 25px;
+}
+
+.txt_md {
+  font-size: 22px;
+}
+
+.txt_sm {
+  font-size: 15px;
+}
+
+.txt_xs {
+  font-size: 12px;
+}
+
+.txt_xs_mini {
+  font-size: 12px;
+}
+
+/* ============ TERMINA ESTILOS GLOBALES TIN APP ============ */
+
+}
+
+/* ============ TERMINA MEDIAQUERIES TIN APP ============ */ 
