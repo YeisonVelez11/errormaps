@@ -4,6 +4,18 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
+ function fixMap(){
+    if(document.URL.search("ubi")!=-1){
+      if(document.getElementById("sidemenu").classList.contains('fix_ion_side_left')){
+        angular.element( document.querySelector('#sidemenu')).removeClass('fix_ion_side_left');
+      }
+      else{
+        angular.element( document.querySelector('#sidemenu')).addClass('fix_ion_side_left');
+      }
+    }
+}
+
+
 angular.module('tinApp', ['ionic','tinApp.controllers','tinApp.services','ngCordova'/*,  'ngCordovaOauth'*/])
 
 .run(function($ionicPlatform) {

@@ -1,5 +1,20 @@
 /* ============ ESTILOS GLOBALES APLICACION ============ */
 
+.fix_ion_side_left{
+  width:0px !important;
+}
+#sidemenu
+{
+  z-index:-99 !important;
+}
+
+/*
+#sidemenu
+{
+  width:0px !important;
+}
+*/
+
 /* ---------------------------------------------------
   FUENTES TEXTOS
 ----------------------------------------------------- */

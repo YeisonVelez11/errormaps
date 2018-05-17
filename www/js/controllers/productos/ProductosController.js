@@ -1,6 +1,12 @@
- 
-tinApp.controller('productosController', function($scope/*,$cordovaOauth*/,$state, $q, UserService, $ionicLoading,ionicpopup) {
 
+tinApp.controller('productosController', function($scope/*,$cordovaOauth*/,$state, $q, UserService, $ionicLoading,ionicpopup,$ionicSideMenuDelegate) {
+/*/*/
+  angular.element( document.querySelector('#sidemenu')).removeClass('fix_ion_side_left');
+
+
+ /* setTimeout(function(){
+       document.querySelector("#sidemenu").style.width="auto";
+  },5000)*/
 	$scope.productos = [
 	    { title: 'Zapatos', id: 1 },
 	    { title: 'Chanclas', id: 2 },
