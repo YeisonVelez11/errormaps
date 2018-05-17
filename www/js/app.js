@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('tinApp', ['ionic','tinApp.controllers','tinApp.services','ngCordova', 'ngMap'/*,  'ngCordovaOauth'*/])
+angular.module('tinApp', ['ionic','tinApp.controllers','tinApp.services','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -63,6 +63,7 @@ angular.module('tinApp', ['ionic','tinApp.controllers','tinApp.services','ngCord
   .state('app.ubicaciones', {
     url: '/ubicaciones',
     views: {
+      
       'menuContent': {
         templateUrl: 'templates/ubicaciones/ubicaciones.html',
         controller: 'UbicacionesController'
