@@ -1,5 +1,5 @@
  
-tinApp.controller('ProductosController', function($scope/*,$cordovaOauth*/,$state, $q, UserService, $ionicLoading,ionicpopup) {
+tinApp.controller('productosController', function($scope/*,$cordovaOauth*/,$state, $q, UserService, $ionicLoading,ionicpopup) {
 
 	$scope.productos = [
 	    { title: 'Zapatos', id: 1 },

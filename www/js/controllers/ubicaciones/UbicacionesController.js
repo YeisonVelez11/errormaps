@@ -1,7 +1,10 @@
  
-tinApp.controller('UbicacionesController', function($scope,$state,  $ionicLoading) {
-/*$cordovaGeolocation*/
-  var mapDiv = document.getElementById("map_canvas");
+tinApp.controller('ubicacionesController', function($scope,$state, $ionicLoading,$ionicPlatform) {
+
+$ionicPlatform.ready(function(){
+
+
+var mapDiv = document.getElementById("map_canvas");
     var options = {
         'camera': {
             'target': dummyData()[0].position,
@@ -608,6 +611,6 @@ function dummyData() {
       "icon": "./img/starbucks.png"
     }
   ];
-  }
-
+}
+});
 });

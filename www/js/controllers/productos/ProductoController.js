@@ -1,4 +1,4 @@
-tinApp.controller('ProductoController', function($scope, $stateParams,$ionicLoading,ionicpopup) {
+tinApp.controller('productoController', function($scope, $stateParams,$ionicLoading,ionicpopup) {
 	
 
 });
