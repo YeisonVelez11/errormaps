@@ -1,7 +1,7 @@
 
 tinApp.controller('productosController', function($scope/*,$cordovaOauth*/,$state, $q, UserService, $ionicLoading,ionicpopup,$ionicSideMenuDelegate) {
 /*/*/
-  angular.element( document.querySelector('#sidemenu')).removeClass('fix_ion_side_left');
+  //angular.element( document.querySelector('#sidemenu')).removeClass('fix_ion_side_left');
 
 
  /* setTimeout(function(){
