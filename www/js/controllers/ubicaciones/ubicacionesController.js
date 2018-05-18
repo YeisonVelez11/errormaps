@@ -1,7 +1,7 @@
  
 tinApp.controller('ubicacionesController', function($scope,$state,  $ionicLoading) {
 /*$cordovaGeolocation*/
-  angular.element( document.querySelector('#sidemenu')).addClass('fix_ion_side_left');
+  //angular.element( document.querySelector('#sidemenu')).addClass('fix_ion_side_left');
 
   var mapDiv = document.getElementById("map_canvas");
     //var myLocation= {"lat": 5.0648733, "lng": -75.4916295};
