@@ -4,21 +4,24 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
- function fixMap(){
-    if(document.URL.search("ubi")!=-1){
-      if(document.getElementById("sidemenu").classList.contains('fix_ion_side_left')){
-        angular.element( document.querySelector('#sidemenu')).removeClass('fix_ion_side_left');
-      }
-      else{
-        angular.element( document.querySelector('#sidemenu')).addClass('fix_ion_side_left');
-      }
-    }
-}
+
+angular.module('tinApp', ['ionic','tinApp.controllers','tinApp.services','tinApp.constantes','ngCordova','ngStorage'/*,  'ngCordovaOauth'*/])
 
 
-angular.module('tinApp', ['ionic','tinApp.controllers','tinApp.services','ngCordova'/*,  'ngCordovaOauth'*/])
+.run(function($ionicPlatform,$rootScope,$ionicSideMenuDelegate,$localStorage) {
 
-.run(function($ionicPlatform) {
+  $ionicPlatform.registerBackButtonAction(function (event) {
+      event.preventDefault();
+  }, 100);
+
+
+      //$rootScope.menuHidden = false;
+
+  $rootScope.$on('$stateChangeStart',
+    function(event, toState, toParams, fromState, fromParams){
+     $rootScope.menuOpen= toState.name != 'app.ubicaciones';
+  });
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -34,7 +37,10 @@ angular.module('tinApp', ['ionic','tinApp.controllers','tinApp.services','ngCord
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  $ionicConfigProvider.backButton.text('').previousTitleText(false);
+  $ionicConfigProvider.navBar.alignTitle('center');
+  $ionicConfigProvider.scrolling.jsScrolling(true);
   $stateProvider
 
   .state('app', {
@@ -43,37 +49,15 @@ angular.module('tinApp', ['ionic','tinApp.controllers','tinApp.services','ngCord
     templateUrl: 'templates/menu.html'
   })
 
-  .state('app.buscar', {
-    url: '/buscar',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/buscar/buscar.html'
-      }
-    }
-  })
-
-  .state('app.productos', {
-    url: '/productos',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/productos/productos.html',
-        controller: 'productosController'
-      }
-    }
-  })
-
-  .state('app.single', {
-    url: '/productos/:productoId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/productos/producto.html',
-        controller: 'productoController'
-      }
-    }
+  .state('login', {
+    url: '/login',
+      templateUrl: 'templates/login/login.html',
+      controller: 'loginController'
   })
 
   .state('app.ubicaciones', {
-    url: '/ubicaciones',
+    url: '/ubicaciones?nombre&id&lat&lng',
+    cache:false,
     views: {
       'menuContent': {
         templateUrl: 'templates/ubicaciones/ubicaciones.html',
@@ -83,6 +67,6 @@ angular.module('tinApp', ['ionic','tinApp.controllers','tinApp.services','ngCord
   })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/productos');
+  $urlRouterProvider.otherwise('/login');
 
 });

@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>TinApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="com.tin.app" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>TIN</name>
+    <description>TIN, ¡las mejores ofertas cerca de ti!</description>
+    <author email="pavelez@hotmail.com">TIN</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -19,6 +19,7 @@
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
+    <preference name="orientation" value="portrait" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -39,6 +40,10 @@
         <splash density="port-xhdpi" src="resources/android/splash/drawable-port-xhdpi-screen.png" />
         <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
+        <config-file parent="/resources" target="./res/values/strings.xml">
+            <string name="fb_app_id">380099785809127</string>
+            <string name="fb_app_name">TINAPP</string>
+        </config-file>
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
@@ -75,19 +80,31 @@
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
+            <string>Debes proporcionar tu ubicación GPS</string>
+        </edit-config>
     </platform>
-    <plugin name="cordova-plugin-device" spec="^2.0.1" />
-    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
-    <plugin name="cordova-plugin-ionic-webview" spec="^1.2.0" />
+    <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
-    <plugin name="cordova-plugin-keyboard" spec="^1.2.0" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
-    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <plugin name="cordova-plugin-googlemaps" spec="git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git#multiple_maps">
+    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^1.2.1" />
+    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.2" />
+    <plugin name="cordova-android-play-services-gradle-release" spec="^1.4.1" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
+    <plugin name="cordova-plugin-request-location-accuracy" spec="^2.2.3" />
+    <plugin name="cordova.plugins.diagnostic" spec="^4.0.8" />
+    <plugin name="cordova-plugin-facebook4" spec="^2.1.0">
+        <variable name="APP_ID" value="380099785809127" />
+        <variable name="APP_NAME" value="TINAPP" />
+        <variable name="ANDROID_SDK_VERSION" value="4.+" />
+    </plugin>
+    <plugin name="cordova-plugin-googlemaps" spec="^2.3.2">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAn3En_YYR2AOFnHoRDWR-KYjifQ_AyqVA" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyASOO8LPnb54A6EyrYo8X9wuEPZv7-8nJk" />
         <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="26.1.0" />
     </plugin>
-    <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
+    <engine name="ios" spec="4.5.4" />
     <engine name="android" spec="7.0.0" />
 </widget>
