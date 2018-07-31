@@ -4,7 +4,7 @@ tinApp.controller('ubicacionesController', function($scope,$state,ionicpopup,$io
  
 
 
-  var myLocation= {"lat": 4.624335, "lng": -74.063644};
+  var myLocation= {"lat": 5.063966, "lng": -75.492925};
   var geolocation=true;
   var temp_myLocation=null;
   var circle=null;
@@ -12,7 +12,7 @@ tinApp.controller('ubicacionesController', function($scope,$state,ionicpopup,$io
   var search_without_geo=false;
   var map =null;
 
-  var myLocation= {"lat": 4.624335, "lng": -74.063644};
+  var myLocation= {"lat": 5.063966, "lng": -75.492925};
   var mapDiv = document.getElementById("map_canvas");
   var options = {
 
