@@ -152,13 +152,15 @@
   content: "\e904";
   color: #df3227;
   font-size: 25px;
-  line-height: 40px;
+  position: relative;
+  top: 7px;
 }
 .icon-megusta-inact:before {
   content: "\e905";
   color: #bcbec0;
   font-size: 25px;
-  line-height: 40px;
+  position: relative;
+  top: 7px;
 }
 
 .fa-map-marker-alt {
@@ -312,7 +314,19 @@ input-placeholder { font-size: 13.59px; color: #999999 !important; font-family: 
 
 textarea:focus {
   outline: none !important;
-  border: 2px solid #00CCFF !important;
+  border: 2px solid #2F4B95 !important; 
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: #050F37;
+  font-family: 'Roboto-Light', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 13px;
 }
 
 .set_cursor {
@@ -332,7 +346,7 @@ textarea:focus {
 
 .set_margin_content_top_less_two_ionic {
   position: absolute;
-  top: 66px;
+  top: 82px;
 }
 
 .set_margin_content_top_less_tree_ionic {
@@ -525,6 +539,10 @@ textarea:focus {
   background: #050F37 !important;
 }
 
+.bg_azul_claro {
+  background: #2F4B95 !important;
+}
+
 .bg_azul_gris {
   background: #FAFAF8 !important;
 }
@@ -539,6 +557,14 @@ textarea:focus {
 
 .bg_gris_oscuro {
   background-color: #212529 !important;
+}
+
+.bg_transparent {
+  background-color: transparent !important;
+}
+
+.bg_verde {
+  background-color: #64AF2E !important;
 }
 
 /* ---------------------------------------------------
@@ -562,7 +588,7 @@ textarea:focus {
 }
 
 .txt_color_verde {
-  color: #33E789 !important;
+  color: #64AF2E !important;
 }
 
 .txt_color_rojo {
@@ -574,7 +600,7 @@ textarea:focus {
 }
 
 .txt_color_azul_claro {
-  color: #00CCFF !important;
+  color: #2F4B95 !important;
 }
 
 /* ---------------------------------------------------
@@ -589,35 +615,36 @@ textarea:focus {
 }
 
 .txt_xl {
-  font-size: 36px;
+  font-size: 19px;
 }
 
 .txt_lg {
-  font-size: 30px;
-}
-
-.txt_md {
   font-size: 24px;
 }
 
-.txt_sm {
-  font-size: 18px;
+.txt_md {
+  font-size: 21px;
 }
 
-.txt_xs {
+.txt_sm {
   font-size: 14px;
 }
 
-.txt_xs_mini {
-  font-size: 12px;
+.txt_xs {
+  font-size: 13px;
 }
+
+.txt_xs_mini {
+  font-size: 11px;
+}
+
 
 .txt_xs_button {
   font-size: 10px;
 }
 
 .txt_categoria {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 
@@ -816,12 +843,32 @@ label.error {
 }
 
 /* ---------------------------------------------------
+  RECUPERAR CONTRASEÑA
+----------------------------------------------------- */
+
+.formulario_custom.formRecuperarContrasena .group.-ionic > .field {
+    height: 2.4rem;
+    text-indent: 15px;
+    border-radius: 0px;
+    border-bottom: 2px solid #FAFAF8 !important;
+    border-top: none;
+    color: #FAFAF8;
+    font-family: 'Roboto-Light', Helvetica, Arial, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 12px;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+}
+
+/* ---------------------------------------------------
   ESTILOS FORMULARIOS CUSTOM
 ----------------------------------------------------- */
 
 .formulario_custom {
   width: 100%;
-  background-color: #FAFAF8;
+  background-color: transparent;
 }
 
 .formulario_custom .group {
@@ -835,24 +882,28 @@ label.error {
   text-indent: 15px;
   border-radius: 0px;
   border: 2px solid #050F37;
+  font-family: 'Roboto-Light', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 12px;
   border-top: none;
   border-left: none;
   border-right: none;
-  background-color: #FAFAF8;
+  background-color: transparent;
 }
 
 .formulario_custom .group.-ionic > .field:focus, .formulario_custom .group.-ionic > .field:valid {
-  border-color: #00CCFF;
+  border-color: #2F4B95;
 }
 
 .formulario_custom .group.-ionic > .field:focus + .title, .formulario_custom .group.-ionic > .field:valid + .title {
   top: -2px;
-  color: #00CCFF;
+  color: #2F4B95;
 }
 
 .formulario_custom .group.-ionic > .field + .title {
   padding: 0 .0rem;
-  background-color: #FAFAF8;
+  background-color: transparent;
 }
 
 .formulario_custom .group > .field {
@@ -890,7 +941,7 @@ label.error {
 
 textarea:focus {
   outline: none !important;
-  border: 2px solid #00CCFF !important;
+  border: 2px solid #2F4B95 !important;
 }
 
 /* ---------------------------------------------------
@@ -942,6 +993,173 @@ select:focus,
 /* ============ ESTILOS GLOBALES IONIC ============ */
 
 /* ---------------------------------------------------
+    BACKDROP POPUP IONIC CUSTOM 
+----------------------------------------------------- */ 
+
+#vista_descripcion .has-footer {
+  bottom: 60px;
+}
+
+/* ---------------------------------------------------
+    BACKDROP POPUP IONIC CUSTOM 
+----------------------------------------------------- */ 
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: 0.1s opacity linear;
+  transition: 0.1s opacity linear;
+}
+
+/* ---------------------------------------------------
+    BAR TITLE IONIC CUSTOM 
+----------------------------------------------------- */
+
+.bar .title {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+  margin: 0 10px;
+  min-width: 30px;
+  height: 43px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 44px;
+}
+
+/* ---------------------------------------------------
+    ITEM LIST IONIC CUSTOM 
+----------------------------------------------------- */
+
+.checkbox input:before, .checkbox-icon:before {
+  display: table;
+  width: 100%;
+  height: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 28px;
+  background: #FAFAF8;
+  content: ' ';
+  -webkit-transition: background-color 20ms ease-in-out;
+  transition: background-color 20ms ease-in-out;
+}
+
+/* ---------------------------------------------------
+    CARD IONIC CUSTOM 
+----------------------------------------------------- */
+
+.card {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------------------------------------------------
+    POPUP IONIC CUSTOM 
+----------------------------------------------------- */
+
+.popup-container .popup {
+  width: 250px;
+  max-width: 100%;
+  max-height: 90%;
+  border-radius: 5px !important;
+  background-color: rgba(250, 250, 248, 1) !important;
+  -webkit-box-shadow: 0 0px 2px rgba(0,0,0,0.3), 0 2px 2px rgba(0,0,0,0.22);
+  -moz-box-shadow: 0 0px 2px rgba(0,0,0,0.3), 0 2px 2px rgba(0,0,0,0.22);
+  -ms-box-shadow: 0 0px 2px rgba(0,0,0,0.3), 0 2px 2px rgba(0,0,0,0.22);
+  box-shadow: 0 0px 2px rgba(0,0,0,0.3), 0 2px 2px rgba(0,0,0,0.22);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.popup-head {
+  background-color: #CD1031;
+  border-radius: 5px 5px 0px 0px !important;
+}
+
+.popup-title {
+  color: #FAFAF8;
+  font-family: 'Roboto-Light', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 14px;
+}
+
+.popup-sub-title {
+  color: #FAFAF8;
+  font-family: 'Roboto-Light', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 12px;
+}
+
+.popup-body {
+  background-color: #FAFAF8;
+  color: #212529;
+}
+
+.popup-buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 10px;
+  min-height: 55px;
+  width: 130px !important;
+  margin: 0 auto;
+}
+
+.popup-buttons .button {
+  background-color: #FAFAF8;
+  font-size: 13px;
+  font-family: 'Roboto-Bold', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  color: #050F37 !important;
+  border: 0 !important;
+  font-size: 13.2px;
+}
+
+.popup-buttons .button.activated {
+  background-color: #FAFAF8;
+  color: #050F37 !important;
+  border: 0 !important;
+  font-size: 13.2px;
+}
+
+/* ---------------------------------------------------
     CHECKBOX IONIC CUSTOM
 ----------------------------------------------------- */
 
@@ -971,7 +1189,7 @@ select:focus,
   text-align: center;
   text-overflow: ellipsis;
   font-size: 16px;
-  line-height: 28px !important;
+  __line-height: 28px !important;
   cursor: pointer;
 }
 
@@ -1050,6 +1268,7 @@ select:focus,
   border-width: 1px;
   border-style: solid;
   font-size: 16px;
+  line-height: 10px;
 }
 
 .side_menu_custom .item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p {
@@ -1147,7 +1366,7 @@ select:focus,
 }
 
 .w-80 {
-  width: 80% !important;
+  width: 85% !important;
 }
 
 .w-45 {
@@ -1159,7 +1378,7 @@ select:focus,
 }
 
 .h-12 {
-  height: 12% !important;
+  height: 60px !important;
 }
 
 /* ============ TERMINA ESTILOS GLOBALES TIN APP ============ */
@@ -1319,6 +1538,15 @@ ion-scroll {
   background-color: transparent;
 }
 
+select.select_custom:focus {
+  border: 2px solid #FAFAF8 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* ---------------------------------------------------
   DOTS WIZARD
 ----------------------------------------------------- */
@@ -1355,7 +1583,7 @@ ion-scroll {
   width: 100%;
 }
 
-.contenedor_tienda, .contenedor_categoria {
+/*.contenedor_tienda, .contenedor_categoria {
   float: left;
   width: 30%;
   margin: 1.5%;
@@ -1367,6 +1595,31 @@ ion-scroll {
   -ms-flex-pack: center;
   justify-content: center;
   -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(160,160,160,1);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(160,160,160,1);
+  -ms-box-shadow: 0px 0px 5px 0px rgba(160,160,160,1);
+  box-shadow: 0px 0px 5px 0px rgba(160,160,160,1);
+}*/
+
+.contenedor_tienda, .contenedor_categoria {
+  float: left;
+  width: 30%;
+  margin: 1.5%;
+  border-radius: 4px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
@@ -1414,13 +1667,16 @@ ion-scroll {
   padding: 1rem;
   margin-bottom: 1rem;
   text-align: center;
+  -webkit-box-shadow: 0px 3px 10px -2px rgba(250, 250, 248, 0.2);
   box-shadow: 0px 3px 10px -2px rgba(250, 250, 248, 0.2);
   position: relative;
 }
 
 .contenido_tienda input[type="checkbox"]:checked + label {
+  -webkit-box-shadow: 0px 0px 6px rgba(250, 250, 248, 0.75);
   box-shadow: 0px 0px 6px rgba(250, 250, 248, 0.75);
 }
+
 .contenido_tienda input[type="checkbox"]:checked + label::after {
   color: #3d3f43;
   font-family: FontAwesome;
@@ -1430,13 +1686,16 @@ ion-scroll {
   position: absolute;
   top: -6px;
   left: 92%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   height: 25px;
   width: 25px;
   line-height: 22px;
   text-align: center;
   border-radius: 50%;
   background: white;
+  -webkit-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
 }
 
@@ -1513,6 +1772,13 @@ ion-scroll {
 
 /* ============ VISTA OFERTAS TIN ============ */ 
 
+.padding_cupon_productos {
+  padding-left: 0.7rem !important;
+  padding-right: 0.7rem !important;
+  padding-top: 0.4rem !important;
+  padding-bottom: 0.4rem !important;
+}
+
 /* ---------------------------------------------------
   TIRILLA CUPON
 ----------------------------------------------------- */
@@ -1526,6 +1792,103 @@ ion-scroll {
 svg.borde_cupon {
   width: 100%;
   height: 12px;
+}
+
+/* ---------------------------------------------------
+  DISEÑO CUPON INFO PRODUCTO
+----------------------------------------------------- */
+
+.borde_cupon_uno {
+  position: absolute;
+  top: -5px;
+  left: -1px;
+  z-index: 9;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+svg.borde_cupon_uno {
+  width: 100%;
+  height: 12px;
+}
+
+.borde_cupon_dos {
+  position: absolute;
+  bottom: -5px;
+  left: -1px;
+}
+
+svg.borde_cupon_dos {
+  width: 100%;
+  height: 12px;
+}
+
+.card_cupon_info {
+  position: relative;
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+.card_cupon_info:before, .card_cupon_info:after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background: #FAFAF8;
+  border-radius: 64px;
+  top: 50%;
+  z-index: 1;
+}
+
+.card_cupon_info:before {
+  left: 0;
+  -webkit-transform: translate(-75%, -50%);
+      -ms-transform: translate(-75%, -50%);
+          transform: translate(-75%, -50%);
+}
+
+.card_cupon_info:after {
+  right: 0;
+  -webkit-transform: translate(75%, -50%);
+      -ms-transform: translate(75%, -50%);
+          transform: translate(75%, -50%);
+}
+
+
+.card_cupon_detalle {
+  position: relative;
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+.card_cupon_detalle:before, .card_cupon_detalle:after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  background: #FAFAF8;
+  border-radius: 64px;
+  top: 50%;
+  z-index: 1;
+}
+
+.card_cupon_detalle:before {
+  left: 0;
+  -webkit-transform: translate(-75%, -50%);
+      -ms-transform: translate(-75%, -50%);
+          transform: translate(-75%, -50%);
+}
+
+.card_cupon_detalle:after {
+  right: 0;
+  -webkit-transform: translate(75%, -50%);
+      -ms-transform: translate(75%, -50%);
+          transform: translate(75%, -50%);
 }
 
 /* ---------------------------------------------------
@@ -1584,7 +1947,6 @@ svg.borde_cupon {
 
 .full_image_radius {
     width: 100%;
-    height: 170px;
     border-radius: 6px;
     position: relative;
     top: -1px;
@@ -1641,7 +2003,7 @@ svg.borde_cupon {
   width: 42px;
   padding: 10px 0;
   position: absolute;
-  bottom: 60px;
+  bottom: 15px;
   right: 16px;
   text-align: center;
   text-transform: uppercase;
@@ -1903,8 +2265,11 @@ svg.borde_cupon {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   padding: 5px 15px 5px 64px;
   border-radius: 4px;
-  transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
+
 .cupon:before, .cupon:after {
   content: '';
   display: block;
@@ -1916,13 +2281,19 @@ svg.borde_cupon {
   top: 50%;
   z-index: 1;
 }
+
 .cupon:before {
   left: 0;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
+
 .cupon:after {
   right: 0;
-  transform: translate(50%, -50%);
+  -webkit-transform: translate(50%, -50%);
+      -ms-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
 }
 
 .tirilla_cupon {
@@ -1937,8 +2308,8 @@ svg.borde_cupon {
   border-radius: 4px;
   background-color: rgba(205,16,49,0.9);
   border-left: 4px dotted #FAFAF8;
-  -ms-transform: rotate(180deg); /* IE 9 */
-  -webkit-transform: rotate(180deg); /* Safari 3-8 */
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
@@ -1971,12 +2342,16 @@ svg.borde_cupon {
 .identificador_cupon {
   height: 100%;
   text-align: center;
-  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
   color: #FFFFFF;
   position: absolute;
   top: 50%;
   left: 32%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 /* ---------------------------------------------------
@@ -1989,7 +2364,10 @@ svg.borde_cupon {
 }
 
 .img_producto_cupon {
-  object-fit: unset;
+  -webkit-object-fit: unset;
+  -ms-object-fit: unset;
+  -o-object-fit: unset;
+     object-fit: unset;
   width: 100%;
   height: 100%;
 }
@@ -2004,7 +2382,10 @@ svg.borde_cupon {
 }
 
 .img_codigo_barras {
-  object-fit: unset;
+  -webkit-object-fit: unset;
+  -ms-object-fit: unset;
+  -o-object-fit: unset;
+     object-fit: unset;
   width: 100%;
   height: 100%;
 }
@@ -2053,15 +2434,15 @@ svg.border_cupon_mis_tins {
 ----------------------------------------------------- */
 
 .txt_xl {
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .txt_lg {
-  font-size: 15px;
+  font-size: 24px;
 }
 
 .txt_md {
-  font-size: 20px;
+  font-size: 21px;
 }
 
 .txt_sm {
@@ -2069,11 +2450,11 @@ svg.border_cupon_mis_tins {
 }
 
 .txt_xs {
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .txt_xs_mini {
-  font-size: 10px;
+  font-size: 11px;
 }
 
 /* ============ TERMINA ESTILOS GLOBALES TIN APP ============ */
@@ -2091,7 +2472,7 @@ svg.border_cupon_mis_tins {
 ----------------------------------------------------- */
 
 .txt_xl {
-  font-size: 24px;
+  font-size: 19px;
 }
 
 .txt_lg {
@@ -2103,16 +2484,16 @@ svg.border_cupon_mis_tins {
 }
 
 .txt_sm {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .txt_xs {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .txt_xs_mini {
   font-size: 11px;
-} 
+}
 
 /* ============ TERMINA ESTILOS GLOBALES TIN APP ============ */
 

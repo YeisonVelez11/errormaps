@@ -1,5 +1,8 @@
 var timeout=15000;
-
+Date.prototype.addHours = function(h) {    
+         this.setTime(this.getTime() + (h*60*60*1000)); 
+         return this;   
+}
 Date.prototype.yyyymmdd = function() {
     var mm = this.getMonth() + 1; // getMonth() is zero-based
     var dd = this.getDate();
@@ -14,6 +17,56 @@ Date.prototype.yyyymmdd = function() {
 	
 angular.module('tinApp.services', [])
 
+
+     
+    .factory('restDate', function() 
+  {
+
+      var oDate = {};
+
+      //quita acentos a una palabra
+      oDate.diffHours= function(fecha_inicio,fecha_fin,tiempo){
+      var fechaActualTime=moment().format("YYYY/MM/DD HH:mm:ss");
+      fecha_inicio=fecha_inicio.replace(" ","T");
+      fecha_fin=fecha_fin.replace(" ","T");
+        if(tiempo){
+          console.log(tiempo)
+          tiempo=parseInt(tiempo);
+          //fecha_inicio = moment(fecha_inicio,"YYYY/MM/DD HH:mm:ss").add(tiempo, 'hours').format('YYYY-MM-DD hh:mm:ss');
+          fecha_inicio=new Date(fecha_inicio).addHours(tiempo);
+          fecha_fin=new Date(fechaActualTime);
+
+          var theevent = new Date(fecha_inicio);
+          now = new Date(fecha_fin);   
+        }
+        else{
+             var theevent = new Date(fecha_fin);
+          now = new Date(fecha_inicio);    
+        }
+
+        var sec_num = (theevent - now) / 1000;
+        var days    = Math.floor(sec_num / (3600 * 24));
+        var hours   = Math.floor((sec_num - (days * (3600 * 24)))/3600);
+        var minutes = Math.floor((sec_num - (days * (3600 * 24)) - (hours * 3600)) / 60);
+        var seconds = Math.floor(sec_num - (days * (3600 * 24)) - (hours * 3600) - (minutes * 60));
+
+        if (hours   < 10) {hours   = "0"+hours;}
+        if (minutes < 10) {minutes = "0"+minutes;}
+        if (seconds < 10) {seconds = "0"+seconds;}
+        if(tiempo){
+          hours=hours=="00"?'':hours+":";
+          //minutes=minutes[0]=="0"?minutes[1]:minutes;
+          return hours+minutes+ (hours==""?' Minutos':' Horas');
+        }
+        else{
+         return  (days)+'D '+ hours+':'+minutes+':'+seconds;
+        }
+
+      }
+
+
+      return oDate;
+  })
 
 
 
@@ -115,7 +168,7 @@ angular.module('tinApp.services', [])
           dfd.resolve(results[0].geometry.location);
         }
         else {
-          dfd.reject("no results");
+          dfd.reject("no se encontraron resultados");
         }
       }
       else {
@@ -272,26 +325,28 @@ angular.module('tinApp.services', [])
               alertPopup = $ionicPopup.alert({
                   subTitle: oTipoErrores[status],
                   buttons: [{
-                      text: 'OK',
+                      text: 'Aceptar',
                       type: 'button-positive',
                       onTap: function() {
 
                         if($localStorage.token==undefined){
-                          console.log($state.current)
-                          if($state.current.name=="login"){
+                          //console.log($state.current)
+                          //if($state.current.name=="login"){
                             $window.location.reload();
-                          }
-                          else{
-                            $state.go("app.ofertas", {}, {reload: true});
-                          }
+                          //}
+                          //else{
+                            //$state.go("app.ofertas", {}, {reload: true});
+                          //}
                         }
                         else{
-                          if($state.current.name=="ofertas"){
+                          /*if($state.current.name=="ofertas"){
                             $window.location.reload();
                           }
                           else{
                             $state.go("app.ofertas", {}, {reload: true});
-                          }
+                          }*/
+                           $state.go("app.ofertas", {}, {reload: true});
+                          $window.location.reload();
                         }
                       }
                   }]
@@ -325,4 +380,93 @@ angular.module('tinApp.services', [])
 
 
       return oUtilidades;
+  })
+
+
+
+     
+    .factory('restDate', function() 
+  {
+
+      var oDate = {};
+
+      //quita acentos a una palabra
+      oDate.diffHours= function(fecha_inicio,fecha_fin,tiempo){
+      var fechaActualTime=moment().format("YYYY/MM/DD HH:mm:ss");
+      fecha_inicio=fecha_inicio.replace(" ","T");
+      fecha_fin=fecha_fin.replace(" ","T");
+        if(tiempo){
+          console.log(tiempo)
+          tiempo=parseInt(tiempo);
+          //fecha_inicio = moment(fecha_inicio,"YYYY/MM/DD HH:mm:ss").add(tiempo, 'hours').format('YYYY-MM-DD hh:mm:ss');
+          fecha_inicio=new Date(fecha_inicio).addHours(tiempo);
+          fecha_fin=new Date(fechaActualTime);
+
+          var theevent = new Date(fecha_inicio);
+          now = new Date(fecha_fin);   
+        }
+        else{
+             var theevent = new Date(fecha_fin);
+          now = new Date(fecha_inicio);    
+        }
+
+        var sec_num = (theevent - now) / 1000;
+        var days    = Math.floor(sec_num / (3600 * 24));
+        var hours   = Math.floor((sec_num - (days * (3600 * 24)))/3600);
+        var minutes = Math.floor((sec_num - (days * (3600 * 24)) - (hours * 3600)) / 60);
+        var seconds = Math.floor(sec_num - (days * (3600 * 24)) - (hours * 3600) - (minutes * 60));
+
+        if (hours   < 10) {hours   = "0"+hours;}
+        if (minutes < 10) {minutes = "0"+minutes;}
+        if (seconds < 10) {seconds = "0"+seconds;}
+        if(tiempo){
+          var medicion_tiempo="";
+          if(hours=="00"){
+            hours="";
+            medicion_tiempo=" Minutos";
+          }
+          else if(hours=="01"){
+            hours=hours+":";
+            medicion_tiempo=" Hora";
+          }
+          else if(hours!="01" && hours!="0"){
+            hours=hours+":";
+            medicion_tiempo=" Horas"
+          }
+          //minutes=minutes[0]=="0"?minutes[1]:minutes;
+          return hours+minutes+ medicion_tiempo;
+        }
+        else{
+         return  (days)+'D '+ hours+':'+minutes+':'+seconds;
+        }
+
+      }
+
+
+      return oDate;
+  })
+
+    .factory('showDateM_H', function() 
+  {
+
+      var oDate = {};
+
+      //quita acentos a una palabra
+      oDate.format= function(date){
+        var formatoFecha=date.split(":");
+        if(formatoFecha[0][0]=="0" && formatoFecha[0][1]=="0"){
+
+          return formatoFecha[0]+":"+formatoFecha[1]+" "+"Minutos"
+        }
+        else if(formatoFecha[0][0]=="0" && formatoFecha[0][1]=="1"){
+          return formatoFecha[0]+":"+formatoFecha[1]+" "+"Hora"
+        }
+        else if(formatoFecha[0][0]=="0" && formatoFecha[0][1]!="1" && formatoFecha[0][1]!="0"){
+          return formatoFecha[0]+":"+formatoFecha[1]+" "+"Horas"
+        }        
+
+      }
+
+
+      return oDate;
   })
