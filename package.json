@@ -1,24 +1,31 @@
 {
-  "name": "TinApp",
+  "name": "tin",
   "version": "0.0.1",
   "description": "An Ionic project",
   "devDependencies": {
-    "gulp": "^3.5.6",
+    "gulp": "^3.9.1",
     "gulp-clean-css": "^3.7.0",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^3.1.0"
   },
   "dependencies": {
+    "@ionic-native/facebook": "^4.7.0",
     "cordova-android": "7.0.0",
+    "cordova-android-play-services-gradle-release": "^1.4.2",
+    "cordova-ios": "4.5.4",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-facebook4": "^2.1.0",
     "cordova-plugin-geolocation": "^4.0.1",
-    "cordova-plugin-googlemaps": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git#multiple_maps",
+    "cordova-plugin-googlemaps": "^2.3.2",
+    "cordova-plugin-googlemaps-sdk": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps-sdk.git#2.7.0",
     "cordova-plugin-inappbrowser": "^3.0.0",
-    "cordova-plugin-ionic-keyboard": "^2.0.5",
+    "cordova-plugin-ionic-keyboard": "^2.1.2",
     "cordova-plugin-ionic-webview": "^1.2.1",
-    "cordova-plugin-keyboard": "^1.2.0",
+    "cordova-plugin-request-location-accuracy": "^2.2.3",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-whitelist": "^1.3.3",
+    "cordova.plugins.diagnostic": "^4.0.8",
+    "minimist": "^1.2.0",
     "xml2js": "^0.4.19"
   },
   "cordova": {
@@ -29,15 +36,27 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-keyboard": {},
+      "cordova-android-play-services-gradle-release": {
+        "PLAY_SERVICES_VERSION": "15.+"
+      },
+      "cordova-plugin-geolocation": {},
+      "cordova.plugins.diagnostic": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "380099785809127",
+        "APP_NAME": "TINAPP",
+        "ANDROID_SDK_VERSION": "4.+"
+      },
+      "cordova-plugin-request-location-accuracy": {},
       "cordova-plugin-googlemaps": {
         "API_KEY_FOR_ANDROID": "AIzaSyAn3En_YYR2AOFnHoRDWR-KYjifQ_AyqVA",
+        "GEOLOCATION_USAGE_DESCRIPTION": "Tu actual ubicación será mostrada en el mapa, de acuerdo a tu ubicación serán mostradas tiendas cercanas a tu ubicación actual en un rango de 2 km",
+        "API_KEY_FOR_IOS": "AIzaSyASOO8LPnb54A6EyrYo8X9wuEPZv7-8nJk",
         "PLAY_SERVICES_VERSION": "15.0.1",
         "ANDROID_SUPPORT_V4_VERSION": "26.1.0"
-      },
-      "cordova-plugin-geolocation": {}
+      }
     },
     "platforms": [
+      "ios",
       "android"
     ]
   }

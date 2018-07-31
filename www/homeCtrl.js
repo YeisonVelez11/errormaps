@@ -53,11 +53,11 @@ tinApp.controller('ubicacionesController', function($scope,$state,ionicpopup,$io
               }            
           ]
 
+  $timeout(function(){
 
   //function onDeviceReady(){
       map= plugin.google.maps.Map.getMap(mapDiv, options);
       map.on(plugin.google.maps.event.MAP_READY, function() {
-  var map =null;
 
         $timeout(function(){
               markerCluster= map.addMarkerCluster({
@@ -78,7 +78,8 @@ tinApp.controller('ubicacionesController', function($scope,$state,ionicpopup,$io
         })
       });
   //}
-  
+    },5000)
+
   //document.addEventListener("deviceready", onDeviceReady, false);
 
  
